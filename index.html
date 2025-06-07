@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weathery - Weather App</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Custom Tailwind configuration -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            sky: {
+              850: '#0c4a6e',
+            },
+            slate: {
+              850: '#1e293b',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          boxShadow: {
+            'glass': '0 4px 30px rgba(0, 0, 0, 0.1)',
+            'neumorphic': '8px 8px 15px #0c4a6e, -8px -8px 15px #1e5799'
+          },
+          backdropBlur: {
+            xs: '2px',
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- Inter font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <script src="./script.js" defer></script>
+</head>
+<body class="flex items-center justify-center min-h-screen bg-gradient-to-br from-sky-900 to-slate-900 font-sans">
+    <div class="w-full max-w-md mx-4">
+        <!-- App Container -->
+        
+            <!-- Header -->
+            <div class="text-center mb-8">
+                <h2 class="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-sky-300 to-blue-100 tracking-tight">
+                    Weathery
+                </h2>
+                <p class="text-sky-200 mt-1">Your personal weather companion</p>
+            </div>
+            
+            <!-- Navigation Tabs -->
+            <div class="flex justify-between bg-sky-900/50 rounded-full p-1 mb-8">
+                <button class="flex-1 py-2 px-4 rounded-full font-medium text-sky-100 bg-sky-700 shadow-inner transition-all duration-300" >
+                    Your Location
+                </button>
+                <button class="flex-1 py-2 px-4 rounded-full font-medium text-sky-300 hover:text-sky-100 transition-colors duration-300" >
+                    Search City
+                </button>
+            </div>
+
+            <!-- Search Form -->
+            <form class="mb-10 flex">
+                <input 
+                    type="text" 
+                    class="flex-1 py-3 px-5 rounded-l-xl bg-slate-850 border border-sky-800 focus:outline-none focus:ring-2 focus:ring-sky-500 text-sky-100 placeholder-sky-500 transition-all duration-300" 
+                    placeholder="Search for a city..."
+                >
+                <button class="py-3 px-6 bg-gradient-to-r from-sky-600 to-blue-500 text-white font-medium rounded-r-xl hover:from-sky-500 hover:to-blue-400 transition-all duration-300 shadow-md hover:shadow-sky-500/30">
+                    Search
+                </button>
+            </form>
+
+            <!-- Weather Display -->
+            <main>
+                <div class="bg-slate-850/70 rounded-xl p-6 border border-sky-800/50 shadow-inner">
+                    <!-- Location & Condition -->
+                    <div class="text-center mb-6">
+                        <div class="text-2xl font-bold text-sky-100 mb-1" city-name>Nagpur</div>
+                        <div class="text-sky-300 text-sm uppercase tracking-wider" data>Broken Clouds</div>
+                    </div>
+                    
+                    <!-- Weather Emoji & Temperature -->
+                    <div class="flex items-center justify-center mb-6">
+                        <div class="text-8xl mr-4" emoji>☀️</div>
+                        <div class="text-5xl font-bold text-white" temp>27<span class="text-3xl align-top">°C</span></div>
+                    </div>
+                    
+                    <!-- Weather Details -->
+                    <div class="grid grid-cols-3 gap-4 text-center">
+                        <div class="bg-sky-900/40 p-3 rounded-lg">
+                            <div class="text-sky-300 text-xs mb-1">Wind</div>
+                            <div class="text-white font-medium">5 km/h</div>
+                        </div>
+                        <div class="bg-sky-900/40 p-3 rounded-lg">
+                            <div class="text-sky-300 text-xs mb-1">Humidity</div>
+                            <div class="text-white font-medium">64%</div>
+                        </div>
+                        <div class="bg-sky-900/40 p-3 rounded-lg">
+                            <div class="text-sky-300 text-xs mb-1">Cloud</div>
+                            <div class="text-white font-medium">40%</div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            
+            <!-- Footer -->
+            <div class="mt-8 text-center text-sky-400 text-xs">
+                Data provided by OpenWeatherMap
+            </div>
+    </div>
+</body>
+</html>
