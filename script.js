@@ -89,12 +89,23 @@ function handleSearch(e) {
 
 // Switch between navigation tabs
 function switchTab(activeTab) {
-    const buttons = document.querySelectorAll('.flex-1');
+    const buttons = document.querySelectorAll('.flex-1 ');
+    const SearchForm = document.getElementById('search-form');
+    const srcbtn = document.querySelector('.srcbtn');
+    const myloc = document.querySelector('.myloc');
+
 
     buttons.forEach(btn => {
         btn.classList.remove('bg-sky-700', 'text-sky-100', 'shadow-inner');
         btn.classList.add('text-sky-300');
     });
+
+    srcbtn.addEventListener('click', () => {
+        SearchForm.classList.remove('hidden');
+    })
+    myloc.addEventListener('click', () => {
+        SearchForm.classList.add('hidden');
+    })
 
     if (activeTab === 'location') {
         locationBtn.classList.add('bg-sky-700', 'text-sky-100', 'shadow-inner');
